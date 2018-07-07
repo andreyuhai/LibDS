@@ -62,10 +62,55 @@ static void     __destroy   (Node * root)
     }
 }
 
+static void     __delete    (Node * root, size_t node_number)
+{
+    size_t size = LinkedList_Manager.size(root);
+
+    if(size < node_number || node_number == 0)
+        return;
+
+    if(node_number == 1)
+    {
+        root = root->next;
+        Node_Manager.destroy(root->previous);
+        root->previous = NULL;
+    }
+    else if(node_number == size)
+    {
+        Node * temp = root;
+        while(temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        temp = temp->previous;
+        Node_Manager.destroy(temp->next);
+        temp->next = NULL;
+    }
+    else
+    {
+        Node * temp = root;
+        size_t i;
+
+        for (i = 0; i < node_number - 1 ; i++)
+        {
+            temp = temp->next;
+        }
+
+        temp->previous->next = temp->next;
+        temp->next->previous = temp->previous;
+
+        temp->next      = NULL;
+        temp->previous  = NULL;
+
+        Node_Manager.destroy(temp);
+    }
+}
+
 const LinkedListManager LinkedList_Manager =
         {
                 .append     = &__append,
                 .create     = &__create,
                 .size       = &__size,
                 .destroy    = &__destroy,
+                .delete     = &__delete,
         };
