@@ -1,7 +1,7 @@
 #ifndef LIBDS_NODE_H
 #define LIBDS_NODE_H
 
-#include "Foundation.h"
+#include "Base.h"
 
 typedef struct Node         Node;
 typedef struct NodeManager  NodeManager;
