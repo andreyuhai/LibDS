@@ -78,3 +78,23 @@ void Test_LinkedList_wData()
     LinkedList_Manager.destroy(root);
 }
 
+void Test_LinkedList_Deletion()
+{
+    Node * root = LinkedList_Manager.create(5);
+    Node * temp = root;
+
+    size_t i;
+
+    for (i = 0; i < LinkedList_Manager.size(root); i++)
+    {
+
+        temp->data_ptr                  = (size_t *) malloc(sizeof(size_t));
+        *((size_t *)(temp->data_ptr))   = i;
+
+        temp = temp->next;
+    }
+
+    LinkedList_Manager.delete(root,3);
+
+}
+
