@@ -1,12 +1,12 @@
-#include "../Headers/Foundation.h"
+#include "../Headers/Base.h"
 
 
-static Node * __create    ()
+static Node *   __create    ()
 {
-    Node * node   = malloc(sizeof(Node));
+    Node * node   = calloc(1, sizeof(Node));
 
-    node->previous  = nullptr;
-    node->next      = nullptr;
+    node->previous  = NULL;
+    node->next      = NULL;
 
     return node;
 }
@@ -15,9 +15,9 @@ static void     __destroy   (Node * node)
 {
     free(node->data_ptr);
 
-    node->data_ptr  = nullptr;
-    node->next      = nullptr;
-    node->previous  = nullptr;
+    node->data_ptr  = NULL;
+    node->next      = NULL;
+    node->previous  = NULL;
 
     free(node);
 }
