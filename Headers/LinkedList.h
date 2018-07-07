@@ -11,7 +11,7 @@ struct LinkedListManager
     void    (* append)      (Node * root, Node * tail);
     size_t  (* size)        (Node * root);
     void    (* destroy)     (Node * root);
-    void    (* deleteNode)  (size_t node_number);
+    void    (* delete)      (Node * root, size_t node_number);
 
 };
 
