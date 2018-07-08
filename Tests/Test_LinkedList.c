@@ -96,5 +96,8 @@ void Test_LinkedList_Deletion()
 
     LinkedList_Manager.delete(root,3);
 
+    LinkedList_Manager.deleteRoot(&root);
+
+    LinkedList_Manager.destroy(root);
 }
 
