@@ -12,7 +12,7 @@ struct LinkedListManager
     size_t  (* size)        (Node * root);
     void    (* destroy)     (Node * root);
     void    (* delete)      (Node * root, size_t node_number);
-
+    void    (* deleteRoot)  (Node ** root);
 };
 
 const LinkedListManager LinkedList_Manager;
