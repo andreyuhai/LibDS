@@ -106,6 +106,13 @@ static void     __delete    (Node * root, size_t node_number)
     }
 }
 
+static void     __deleteRoot    (Node ** root)
+{
+    *root = (*root)->next;
+    Node_Manager.destroy((*root)->previous);
+    (*root)->previous = NULL;
+}
+
 const LinkedListManager LinkedList_Manager =
         {
                 .append     = &__append,
@@ -113,4 +120,5 @@ const LinkedListManager LinkedList_Manager =
                 .size       = &__size,
                 .destroy    = &__destroy,
                 .delete     = &__delete,
+                .deleteRoot = &__deleteRoot
         };
