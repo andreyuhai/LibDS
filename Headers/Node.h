@@ -8,7 +8,7 @@ typedef struct NodeManager  NodeManager;
 
 struct Node
 {
-    any_t   data_ptr;
+    void *  data_ptr;
     Node *  next;
     Node *  previous;
 };
