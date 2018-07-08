@@ -1,6 +1,6 @@
 #include "../Headers/Base.h"
 
-void Test_Append()
+void Test_LinkedList_Append()
 {
     Node * node     = Node_Manager.create();
     Node * node1    = Node_Manager.create();
@@ -14,6 +14,8 @@ void Test_Append()
     LinkedList_Manager.append(node,node1);
 
     printf("Surname : %s\n",(char*)node->next->data_ptr);
+
+    LinkedList_Manager.destroy(node);
 
 }
 
